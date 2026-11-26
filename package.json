@@ -1,0 +1,14 @@
+{
+  "name": "timer",
+  "private": true,
+  "version": "0.1.0",
+  "scripts": {
+    "setup": "npm install --prefix server && npm install --prefix client && node scripts/setup-env.mjs && npm run db:init --prefix server",
+    "dev": "concurrently -n server,client -c blue,magenta \"npm run dev --prefix server\" \"npm run dev --prefix client\"",
+    "test": "npm test --prefix server && npm test --prefix client",
+    "build": "npm run build --prefix client"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.0"
+  }
+}
